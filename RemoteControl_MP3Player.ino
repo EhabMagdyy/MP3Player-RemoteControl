@@ -60,14 +60,14 @@ void loop()
         Serial.println(IrReceiver.decodedIRData.command, HEX);  // Print Received command on Serial Monitor in Hexadecimal
 
         /* play the next audio */
-        if(IrReceiver.decodedIRData.command == 0x1){        // if you press a button with command number '0'
-            /* You can use the function player.previous(). i used this to play just 3 specific audios from SD card */
+        if(IrReceiver.decodedIRData.command == 0x1){        // if you press a button with command number '1'
+            /* You can use the function player.previous(). i used this to play just 4 specific audios from SD card */
             audioNumber = ((audioNumber + 1) > NO_OF_AUDIO)? 1 : (audioNumber + 1);
             player.play(audioNumber);
         }
 
         /* Pause/Resume next audio */
-        else if(IrReceiver.decodedIRData.command == 0x2){   // if you press a button with command number '1'
+        else if(IrReceiver.decodedIRData.command == 0x2){   // if you press a button with command number '2'
             if(isPaused)
             {
                 player.start();
@@ -81,8 +81,8 @@ void loop()
         }
 
         /* play the previous audio */
-        else if(IrReceiver.decodedIRData.command == 0x3){   // if you press a button with command number '1'
-            /* You can use the function player.previous(). i used this to play just 3 specific audios from SD card */
+        else if(IrReceiver.decodedIRData.command == 0x3){   // if you press a button with command number '3'
+            /* You can use the function player.previous(). i used this to play just 43 specific audios from SD card */
             audioNumber = ((audioNumber - 1) == 0)? NO_OF_AUDIO : (audioNumber - 1); 
             player.play(audioNumber);
         }
